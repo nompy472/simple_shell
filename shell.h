@@ -11,16 +11,21 @@
 #include <sys/stat.h>
 #include <time.h>
 #include <stdbool.h>
+#include <errno.h>
+#include <fcntl.h>
+#include <limits.h>
 
 extern __sighandler_t signal(int __sig, __sighandler_t __handler);
 extern char **environ;
 void prompt_user(void);
+int _eputchar(char);
+void _eputs(char *);
 int checker(char **cmd, char *buf);
 char **tokenizer(char *line);
 void handle_signal(int m);
 char *test_path(char **path, char *command);
 char *append_path(char *path, char *command);
-void exit_cmd(char **command, char *line);
+int exit_cmd(char **command, char *line);
 int handle_builtin(char **command, char *line);
 void print_env(void);
 int _strlen(char *s);
@@ -64,6 +69,10 @@ struct info
 {
 	int ln_count;
 	int final_exit;
+	int err_num;
+	int argc;
+	int status;
 } info;
+
 
 #endif
