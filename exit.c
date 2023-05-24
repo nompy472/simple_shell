@@ -4,10 +4,9 @@
  * exit_cmd - exits the shell
  * @command: arguments array
  * @line: input line
+ * Return: 0(success)
  */
 
-char *line = "exit";
-char *command[] = {"exit", NULL};
 
 int exit_cmd(char **command, char *line)
 {
