@@ -1,19 +1,15 @@
 #include "shell.h"
 
 /**
- * exit_cmd - exits the shell
- * @command: arguments array
- * @line: input line
- * Return: 0(success)
- */
-
-
-int exit_cmd(char **command, char *line)
+* exit_cmd - handles the exit command
+* @command: tokenized command
+* @line: input line
+*
+* Return: nothing
+*/
+void exit_cmd(char **command, char *line)
 {
-	if (command[0] != NULL && _strcmp(command[0], "exit") == 0)
-	{
-		exit(0);
-	}
-	return (*line);
-
+	free(line);
+	free_buffers(command);
+	exit(0);
 }
