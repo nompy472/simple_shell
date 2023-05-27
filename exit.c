@@ -14,5 +14,5 @@ void exit_cmd(char **command, char *line)
 		free_buffers(command);
 	}
 	free(line);
-	exit(98);
+	exit(0);
 }
