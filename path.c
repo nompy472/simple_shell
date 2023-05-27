@@ -8,7 +8,7 @@
 char *find_path(void)
 {
 	char **env = environ, *path = NULL;
-	int x;
+	int x = 0;
 
 	while (*env)
 	{
