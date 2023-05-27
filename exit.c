@@ -9,7 +9,10 @@
 */
 void exit_cmd(char **command, char *line)
 {
+	if (command != NULL)
+	{
+		free_buffers(command);
+	}
 	free(line);
-	free_buffers(command);
 	exit(0);
 }
